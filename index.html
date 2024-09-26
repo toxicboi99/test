@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPP Compiler</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 50px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #c5b5b5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+button:hover {
+    background-color: #ffffff;
+}
+
+.hidden {
+    display: none;
+}
+
+.content-section {
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>CPP Compiler</h1>
+
+        <!-- Section 1 -->
+        <div class="content-section">
+            <button class="reveal-btn">BS</button>
+            <div class="content hidden">
+                <p>#include <iostream>
+                    using namespace std;
+                    
+                    int binarySearch(int arr[], int left, int right, int target) {
+                        while (left <= right) {
+                            int mid = left + (right - left) / 2;
+                            
+                            if (arr[mid] == target) {
+                                return mid;
+                            }
+                            else if (arr[mid] < target) {
+                                left = mid + 1;
+                            }
+                            else {
+                                right = mid - 1;
+                            }
+                        }
+                        return -1;
+                    }
+                    
+                    int main() {
+                        int arr[] = {7, 10, 15, 19, 23, 29};
+                        int n = sizeof(arr) / sizeof(arr[0]);
+                        
+                        int target = 19;
+                        int result = binarySearch(arr, 0, n - 1, target);
+                        
+                        if (result != -1) {
+                            cout << "Element found at index " << result << endl;
+                        } else {
+                            cout << "Element not found in the array" << endl;
+                        }
+                        
+                        return 0;
+                    }
+                    </p>
+            </div>
+            <button class="copy-btn">BS</button>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="content-section">
+            <button class="reveal-btn">LS</button>
+            <div class="content hidden">
+                <p>#include <iostream>
+                    using namespace std;
+                    
+                    int linearSearch(int arr[], int n, int target) {
+                        for (int i = 0; i < n; i++) {
+                            if (arr[i] == target) {
+                                return i;
+                            }
+                        }
+                        return -1;
+                    }
+                    
+                    int main() {
+                        int arr[] = {10, 23, 19, 15, 7, 29};
+                        int n = sizeof(arr) / sizeof(arr[0]);
+                        
+                        int target = 15;
+                        int result = linearSearch(arr, n, target);
+                        
+                        if (result != -1) {
+                            cout << "Element found at index " << result << endl;
+                        } else {
+                            cout << "Element not found in the array" << endl;
+                        }
+                        
+                        return 0;
+                    }
+                    </p>
+            </div>
+            <button class="copy-btn">LS</button>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="content-section">
+            <button class="reveal-btn">DSPA</button>
+            <div class="content hidden">
+                <p>#include <iostream>
+                    using namespace std;
+                    
+                    void deleteFromPosition(int arr[], int &n, int pos) {
+                        if (n <= 0) {
+                            cout << "Array is empty. Cannot delete!" << endl;
+                            return;
+                        }
+                        if (pos < 0 || pos >= n) {
+                            cout << "Invalid position!" << endl;
+                            return;
+                        }
+                        for (int i = pos; i < n - 1; i++) {
+                            arr[i] = arr[i + 1]; 
+                        }
+                        n--; 
+                    }
+                    
+                    int main() {
+                        int arr[10] = {2, 3, 5, 7, 9};
+                        int n = 5;
+                        
+                        int pos = 2; 
+                        deleteFromPosition(arr, n, pos);
+                        
+                        for (int i = 0; i < n; i++) {
+                            cout << arr[i] << " ";
+                        }
+                        return 0;
+                    }
+                    </p>
+            </div>
+            <button class="copy-btn">DSPA</button>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="content-section">
+            <button class="reveal-btn">ISPA</button>
+            <div class="content hidden">
+                <p>#include <iostream>
+                    using namespace std;
+                    
+                    void insertAtPosition(int arr[], int &n, int element, int pos, int capacity) {
+                        if (n >= capacity) {
+                            cout << "Array is full. Cannot insert!" << endl;
+                            return;
+                        }
+                        if (pos < 0 || pos > n) {
+                            cout << "Invalid position!" << endl;
+                            return;
+                        }
+                        for (int i = n; i > pos; i--) {
+                            arr[i] = arr[i - 1]; 
+                        }
+                        arr[pos] = element; 
+                    }
+                    
+                    int main() {
+                        int arr[10] = {2, 3, 5, 7, 9};
+                        int n = 5; 
+                        int capacity = 10;
+                        
+                        int element = 4;
+                        int pos = 2; 
+                        insertAtPosition(arr, n, element, pos, capacity);
+                        
+                        for (int i = 0; i < n; i++) {
+                            cout << arr[i] << " ";
+                        }
+                        return 0;
+                    }
+                    </p>
+            </div>
+            <button class="copy-btn">ISPA</button>
+        </div>
+
+        <!-- Section 5 -->
+        <div class="content-section">
+            <button class="reveal-btn">IBL</button>
+            <div class="content hidden">
+                <p>#include <iostream>
+                    using namespace std;
+                    
+                    struct Node {
+                        int data;
+                        Node* next;
+                    };
+                    
+                    void insertAtBeginning(Node*& head, int newData) {
+                        Node* newNode = new Node();
+                        newNode->data = newData;
+                        newNode->next = head;
+                        head = newNode;
+                    }
+                    
+                    void printList(Node* head) {
+                        Node* temp = head;
+                        while (temp != nullptr) {
+                            cout << temp->data << " -> ";
+                            temp = temp->next;
+                        }
+                        cout << "NULL" << endl;
+                    }
+                    
+                    int main() {
+                        Node* head = nullptr;
+                    
+                        insertAtBeginning(head, 10);
+                        insertAtBeginning(head, 20);
+                        insertAtBeginning(head, 30);
+                    
+                        printList(head);
+                    
+                        return 0;
+                    }
+                    </p>
+            </div>
+            <button class="copy-btn">IBL</button>
+        </div>
+
+        <!-- Section 6 -->
+        <div class="content-section">
+            <button class="reveal-btn">IEL</button>
+            <div class="content hidden">
+                <p>#include <iostream>
+                    using namespace std;
+                    
+                    struct Node {
+                        int data;
+                        Node* next;
+                    };
+                    
+                    void insertAtEnd(Node*& head, int newData) {
+                        Node* newNode = new Node();
+                        newNode->data = newData;
+                        newNode->next = nullptr;
+                    
+                        if (head == nullptr) {
+                            head = newNode;
+                            return;
+                        }
+                    
+                        Node* temp = head;
+                        while (temp->next != nullptr) {
+                            temp = temp->next;
+                        }
+                        temp->next = newNode;
+                    }
+                    
+                    void printList(Node* head) {
+                        Node* temp = head;
+                        while (temp != nullptr) {
+                            cout << temp->data << " -> ";
+                            temp = temp->next;
+                        }
+                        cout << "NULL" << endl;
+                    }
+                    
+                    int main() {
+                        Node* head = nullptr;
+                    
+                        insertAtEnd(head, 10);
+                        insertAtEnd(head, 20);
+                        insertAtEnd(head, 30);
+                    
+                        printList(head);
+                    
+                        return 0;
+                    }
+                    </p>
+            </div>
+            <button class="copy-btn">IEL</button>
+        </div>
+
+        <!-- Section 7 -->
+        <div class="content-section">
+            <button class="reveal-btn">ISPL</button>
+            <div class="content hidden">
+                <p>#include <iostream>
+                    using namespace std;
+                    
+                    struct Node {
+                        int data;
+                        Node* next;
+                    };
+                    
+                    void insertAtPosition(Node*& head, int newData, int position) {
+                        Node* newNode = new Node();
+                        newNode->data = newData;
+                    
+                        if (position == 1) {
+                            newNode->next = head;
+                            head = newNode;
+                            return;
+                        }
+                    
+                        Node* temp = head;
+                        for (int i = 1; temp != nullptr && i < position - 1; i++) {
+                            temp = temp->next;
+                        }
+                    
+                        if (temp == nullptr) {
+                            cout << "Position out of bounds" << endl;
+                            return;
+                        }
+                    
+                        newNode->next = temp->next;
+                        temp->next = newNode;
+                    }
+                    
+                    void printList(Node* head) {
+                        Node* temp = head;
+                        while (temp != nullptr) {
+                            cout << temp->data << " -> ";
+                            temp = temp->next;
+                        }
+                        cout << "NULL" << endl;
+                    }
+                    
+                    int main() {
+                        Node* head = nullptr;
+                    
+                        insertAtPosition(head, 10, 1);
+                        insertAtPosition(head, 20, 2);
+                        insertAtPosition(head, 15, 2);
+                        insertAtPosition(head, 25, 4);
+                    
+                        printList(head);
+                    
+                        return 0;
+                    }
+                    </p>
+            </div>
+            <button class="copy-btn">ISPL</button>
+        </div>
+
+        <!-- Section 8 -->
+        <div class="content-section">
+            <button class="reveal-btn">DBL</button>
+            <div class="content hidden">
+                <p>#include <iostream>
+                    using namespace std;
+                    
+                    struct Node {
+                        int data;
+                        Node* next;
+                    };
+                    
+                    void deleteAtBeginning(Node*& head) {
+                        if (head == nullptr) {
+                            cout << "List is empty" << endl;
+                            return;
+                        }
+                        Node* temp = head;
+                        head = head->next;
+                        delete temp;
+                    }
+                    
+                    void printList(Node* head) {
+                        Node* temp = head;
+                        while (temp != nullptr) {
+                            cout << temp->data << " -> ";
+                            temp = temp->next;
+                        }
+                        cout << "NULL" << endl;
+                    }
+                    
+                    int main() {
+                        Node* head = nullptr;
+                    
+                        // Sample data for demonstration
+                        Node* firstNode = new Node{10, nullptr};
+                        Node* secondNode = new Node{20, nullptr};
+                        head = firstNode;
+                        firstNode->next = secondNode;
+                    
+                        printList(head);
+                    
+                        deleteAtBeginning(head);
+                        printList(head);
+                    
+                        deleteAtBeginning(head);
+                        printList(head);
+                    
+                        deleteAtBeginning(head);
+                    
+                        return 0;
+                    }
+                    </p>
+            </div>
+            <button class="copy-btn">DBL</button>
+        </div>
+
+        <!-- Section 9 -->
+        <div class="content-section">
+            <button class="reveal-btn">DEL</button>
+            <div class="content hidden">
+                <p>#include <iostream>
+                    using namespace std;
+                    
+                    struct Node {
+                        int data;
+                        Node* next;
+                    };
+                    
+                    void deleteAtEnd(Node*& head) {
+                        if (head == nullptr) {
+                            cout << "List is empty" << endl;
+                            return;
+                        }
+                        
+                        if (head->next == nullptr) {
+                            delete head;
+                            head = nullptr;
+                            return;
+                        }
+                        
+                        Node* temp = head;
+                        while (temp->next->next != nullptr) {
+                            temp = temp->next;
+                        }
+                        
+                        delete temp->next;
+                        temp->next = nullptr;
+                    }
+                    
+                    void printList(Node* head) {
+                        Node* temp = head;
+                        while (temp != nullptr) {
+                            cout << temp->data << " -> ";
+                            temp = temp->next;
+                        }
+                        cout << "NULL" << endl;
+                    }
+                    
+                    int main() {
+                        Node* head = nullptr;
+                    
+                        Node* firstNode = new Node{10, nullptr};
+                        Node* secondNode = new Node{20, nullptr};
+                        Node* thirdNode = new Node{30, nullptr};
+                    
+                        head = firstNode;
+                        firstNode->next = secondNode;
+                        secondNode->next = thirdNode;
+                    
+                        printList(head);
+                    
+                        deleteAtEnd(head);
+                        printList(head);
+                    
+                        deleteAtEnd(head);
+                        printList(head);
+                    
+                        deleteAtEnd(head);
+                        printList(head);
+                    
+                        deleteAtEnd(head);
+                    
+                        return 0;
+                    }
+                    </p>
+            </div>
+            <button class="copy-btn">DEL</button>
+        </div>
+
+        <!-- Section 10 -->
+        <div class="content-section">
+            <button class="reveal-btn">DSPL</button>
+            <div class="content hidden">
+                <p>#include <iostream>
+                    using namespace std;
+                    
+                    struct Node {
+                        int data;
+                        Node* next;
+                    };
+                    
+                    void deleteAtPosition(Node*& head, int position) {
+                        if (head == nullptr) {
+                            cout << "List is empty" << endl;
+                            return;
+                        }
+                    
+                        if (position == 1) {
+                            Node* temp = head;
+                            head = head->next;
+                            delete temp;
+                            return;
+                        }
+                    
+                        Node* temp = head;
+                        for (int i = 1; temp != nullptr && i < position - 1; i++) {
+                            temp = temp->next;
+                        }
+                    
+                        if (temp == nullptr || temp->next == nullptr) {
+                            cout << "Position out of bounds" << endl;
+                            return;
+                        }
+                    
+                        Node* nodeToDelete = temp->next;
+                        temp->next = nodeToDelete->next;
+                        delete nodeToDelete;
+                    }
+                    
+                    void printList(Node* head) {
+                        Node* temp = head;
+                        while (temp != nullptr) {
+                            cout << temp->data << " -> ";
+                            temp = temp->next;
+                        }
+                        cout << "NULL" << endl;
+                    }
+                    
+                    int main() {
+                        Node* head = nullptr;
+                    
+                        Node* firstNode = new Node{10, nullptr};
+                        Node* secondNode = new Node{20, nullptr};
+                        Node* thirdNode = new Node{30, nullptr};
+                    
+                        head = firstNode;
+                        firstNode->next = secondNode;
+                        secondNode->next = thirdNode;
+                    
+                        printList(head);
+                    
+                        deleteAtPosition(head, 2);
+                        printList(head);
+                    
+                        deleteAtPosition(head, 1);
+                        printList(head);
+                    
+                        deleteAtPosition(head, 3);
+                        printList(head);
+                    
+                        deleteAtPosition(head, 1);
+                    
+                        return 0;
+                    }
+                    </p>
+            </div>
+            <button class="copy-btn">DSPL</button>
+        </div>
+
+    </div>
+
+    <script>
+        // Get all the reveal buttons and copy buttons
+const revealButtons = document.querySelectorAll('.reveal-btn');
+const copyButtons = document.querySelectorAll('.copy-btn');
+
+// Loop through each reveal button and add an event listener
+revealButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+        const content = document.querySelectorAll('.content')[index];
+        content.classList.toggle('hidden');
+    });
+});
+
+// Loop through each copy button and add an event listener
+copyButtons.forEach((button, index) => {
+    button.addEventListener('click', (event) => {
+        event.stopPropagation();  // Prevents the click from affecting the reveal button
+        const contentText = document.querySelectorAll('.content p')[index].textContent;
+
+        // Create a temporary textarea to hold the text for copying
+        const tempTextArea = document.createElement('textarea');
+        tempTextArea.value = contentText;
+        document.body.appendChild(tempTextArea);
+
+        // Select and copy the text
+        tempTextArea.select();
+        document.execCommand('copy');
+
+        // Remove the temporary textarea
+        document.body.removeChild(tempTextArea);
+
+        //alert('Content copied to clipboard!');
+    });
+});
+
+    </script>
+</body>
+</html>
